@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  homework-03:
+    image: kellucd/homework-03:latest
+    build: .
+    container_name: homework03
+    ports:
+      - "80:3000"
+    environment:
+      - PORT=3000
+    volumes:
+      - ./:/app
+    command: ["node", "app.js"]
+      
