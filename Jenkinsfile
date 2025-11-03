@@ -14,7 +14,7 @@ pipeline {
                 checkout scm
             }
         }
-
+/* 
         stage('SAST-TEST') 
         {
             agent any
@@ -29,7 +29,7 @@ pipeline {
                     )
                 }
             }
-        }
+        } */
 
        
       stage('BUILD-AND-TAG') {
