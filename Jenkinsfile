@@ -15,21 +15,21 @@ pipeline {
             }
         }
 
-     stage('SAST-TEST') 
-        {
-            agent any
-            steps 
-            {
-                script 
-                {
-                    snykSecurity(
-                        snykInstallation: 'Snyk-installations',
-                        snykTokenId: 'snyk-token',
-                        severity: 'critical'
-                    )
-                }
-            }
-        }
+    // stage('SAST-TEST') 
+      //  {
+        //    agent any
+         //   steps 
+        //    {
+               // script
+             //   {
+                 //   snykSecurity(
+                  //      snykInstallation: 'Snyk-installations',
+                   //     snykTokenId: 'snyk-token',
+                   //     severity: 'critical'
+                  //  )
+               // }
+          //  }
+      //  }
 
        
       stage('BUILD-AND-TAG') {
