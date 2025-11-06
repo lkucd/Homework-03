@@ -14,22 +14,22 @@ pipeline {
                 checkout scm
             }
         }
-/* 
-        stage('SAST-TEST') 
-        {
-            agent any
-            steps 
-            {
-                script 
-                {
-                    snykSecurity(
-                        snykInstallation: 'Snyk-installations',
-                        snykTokenId: 'snyk-token',
-                        severity: 'critical'
-                    )
+        
+    stage('SonarQube Analysis') {
+            agent {
+                label 'CWEB3120Jenkins'
+            }
+            steps {
+                script {
+                    def scannerHome = tool 'SonarQube-Scanner'
+                    withSonarQubeEnv('SonarQube-installations') {
+                        sh "${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=gameapp \
+                            -Dsonar.sources=."
+                    }
                 }
             }
-        } */
+        }
 
        
       stage('BUILD-AND-TAG') {
